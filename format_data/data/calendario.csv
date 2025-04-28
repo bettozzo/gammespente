@@ -1,0 +1,36 @@
+Fase,Tipo,#,Prompt,Scelta #1,Conseguenza #1,Scelta #2,Conseguenza #2,Scelta #3,Conseguenza #3,Info
+Inizio,Regolare,0,"Inizi a lavorare. Il tuo datore di lavoro ti propone una scelta. Puoi lavorare in regola con uno stipnedio fisso di 900 euro oppure in nero, senza contratto, per 1200 euro",In regola,900€,Nero,1.200€,,,
+Inizio,Regolare,1,"Devi scegliere la tua casa. Se è vicino alla città dove lavori paghi di più, ma spendi meno in benzina per andare al lavoro.",30km,"Affitto: -400€
+Benzina: -180€",0km,"Affitto: -700€
+Benzina: 0€",,,
+Inizio,Regolare,2,"Ogni sabato vai a fare la spesa settimanale. Scegli un discount, un supermercato vicino a casa o una catena con prodotti bio",Discount,-84€,Supermercato,-105€,Biologico,-140€,
+Inizio,Preventiva,3,ti chiama il tuo dentista per ricordarti l'appuntamento annuale per il controllo e l'ablazione del tartaro. Confermi l'appuntamento o lo cancelli?,Si,-100€,No,0€,,,
+Inizio,Regolare,4,"La scuola di tuo figlio organizza una uscita a teatro per tutti i bambini.
+Il biglietto costa 8 euro. Lo mandi o lo tieni a casa?",Lo mandi,-8€,Non lo mandi,0€,,,
+Inizio,Preventiva,5,Trovi nella posta una lettera del tuo assicuratore: è scaduta la polizza RC auto. Ti propone di pagarla in una due rate semestrali. Paghi o ignori la lettera?,Paghi,-400€,Non paghi,0€,,,
+Inizio,Regolare,6,"Torni a casa dal lavoro e ti accorgi di un guasto alla tua vecchia lavatrice: non si accende più la ripari anche se è vecchia, ne compri una nuova o decidi di appoggiarti alla lavatrice a gettone?",Cambi,-250€,Ripara,-150€,Gettoni,-7€,
+Sviluppo,Regolare,7,vicino a casa tua ha aperto una nuova palestra e offre una ottima promozione per i primi iscritti. Ti iscrivi o per ora rinvii?,Iscriviti,-40€,Non ti iscrivi,0€,,,
+Sviluppo,Regolare,8,Arrivano le bollette delle utenze. Se non le paghi ti verranno tolti luce e gas,Paghi,-150€,Non paghi,0€,,,
+Sviluppo,Regolare,9,"Un compagno di scuola di tuo figlio organizza una piccola festa per il suo compleanno. I compagni fanno un regalo collettivo: partecipi, fai un regalo per conto tuo o lo mandi senza?",Da solo,-5€,Con la classe,-8€,Senza,0€,
+Sviluppo,Regolare,10,sta arrivando il weekend e si prevede un sole magnifico. Avresti proprio voglia di passare un week end al mare con tuo figlio e alcuni amici. Ti organizzi per la gita o lasci perdere?,Ci vai,-300€,Non ci vai,0€,,,
+Sviluppo,Regolare,11,"Che guaio! mentre aprivi l'armadio per vestitrti questa mattina ti è rimasta un'anta dell'armadio in mano. La togli e ne fai a meno, compri un armadio al negozio dell'usato o ne acquisti uno nuovo a rate?",Levi,0€,Usato,-70€,Rata Settimanale,-20€,
+Sviluppo,Regolare,12,Un tuo collega offre da bere a tutti. Ha vinto 1000 euro al gratta e vinci. Certo che una vincita risolverebbe molti problemi. Compri un gratta e vinci o lasci perdere?,Compri,-30€,Si,-5€,Si,-20€,????????????????????????????????????????????????????
+Sviluppo,Sostuibile,13,il tuo datore di lavoro ha una commessa di lavoro extra. Ti propone di fare qualche ora in più  sabato pomeriggio. Accetti?,Si,30€,No,0€,,,
+Sviluppo,Regolare,14,"Tuo figlio torna a casa da scuola raggiante: la  cagnolina di un compagno di classe ha avuto 4 cuccioli e vuole regalargliene uno. Sei un po' dubbioso: un cane richiede tempo, cure… e spese. Tra veterinario e cibo almeno 1 euro al giorno. Cosa decidi di fare?",Si,-1€,No,0€,,,
+Sviluppo,Regolare,15,"Ti chiamano gli insegnanti di tuo figlio. Va molto bene in lettere ma male in matematica, e avrebbe bisogno di un aiuto. Lo aiuti tu, lo mandi a ripetizione o chiedi aiuto a un amico?",Aiuto io,0€,Ripetizioni,-50€,Amico,-25€,"per chi decide di aiutarlo: Risolvi questo problema: x+9= 19+(-2x) 
+proporre 4 soluzioni x= 2, 3, 5 e 7. Se rispondono 3: 'Per fortuna conosci abbastanza bene la matematica per aiutarlo alle medie'
+Se rispondono 2,5 e 7 allora 'Purtroppo la tua risposta è sbagliata: tuo figlio continuerà ad avere problemi con la matematica'"
+Sviluppo,Regolare,16,Alcuni carissimi amici che non vedi da tempo organizzano una serata fuori a cena. Ti piacerebbe molto partecipare. Lasci a casa tuo figlio da solo o chiami la baby sitter?,Casa da solo,-30€,BabySitter,-60€,,,perché costa se sta da solo?
+Sviluppo,Regolare,17,Finalmente è il giorno del tuo compleanno e decidi di organizzare una piccola festa in casa. I tuoi amici sanno che sei un po' in difficoltà e per aiutarti ti propongono di scegliere tra un regalo e lo stesso importo in contanti.,Scegli il regalo,0€,Accetti Denaro,100€,,,
+Sviluppo,Sostuibile,18,Sei al lavoro. Tuo figlio ha invitato a casa un amico e all'ora di merenda di telefonano per chiedere se possono uscire a mangiare un gelato. Dai il tuo permesso (e i soldi per comprarlo) o gli dici di prepararsi una merenda in casa?,Si,-4€,No,0€,,,
+Sviluppo,Regolare,19,"Navigando on line trovi un'offerta benessere davvero vantaggiosa: terme, massaggio e pomeriggio relax super scontati. L'offerta vale solo per i primi 10 che rispondono. Acquisti subito l'offerta o rinunci?",Si,-50€,No,0€,,,
+Sviluppo,Regolare,20,"Vicino a casa ha aperto un compro-oro: uno di quei negozi dove puoi vendere gioielli e ricevere denaro contante. Sai che in genere non opagano molto, ma hai alcune collanine e braccialetti che ti avevano regalato da piccolo e non usi più. Li porti?",Si,50€,No,0€,,,
+Fine,Regolare,21,Tuo figlio si è ammalato e siccome ha 8 anni puoi stare a casa ad assisterlo ma non sarai pagato. Si prevedono 3 giorni di malattia.,A casa,-(stipendio/10),Vai,0€,,,
+Fine,Regolare,22,Il condominio di un tuo amico cerca qualcuno che pulisca le scale la mattina presto due volte alla settimana. Accetti questo nuovo lavoro?,Si,50€,No,0€,,,
+Fine,Regolare,23,"Tuo figlio vuole giocare a calcetto. Far parte della squadra è gratis, ma devi pagare divisa e assicurazione. Lo mandi o rinunci?",Lo mando,-50€,Non lo mando,0€,,,
+Fine,Sostuibile,24,Passeggiando in centro vedi una superofferta nel tuo negozio di abbigliamento preferito: saldi al 70%. Irresistibile! Entri o rinunci?,Si,-100€,No,0€,,,
+Fine,Regolare,25,Esci di corsa per andare in ufficio. Arrivi al parcheggio e l'auto non si accende. Oggi andrai al lavoro coi mezzi. La ripari o rinunci?,Si,-300€,No,???,,,
+Fine,Regolare,26,Tuo figlio ha preso un bel voto a scuola. Siete contenti e volete festeggiare. Ordini una pizza a domicilio o prepari qualcosa tu?,Si,-15€,No,0€,,,
+Fine,Regolare,27,"L'idea della pizza di ieri ti ha stuzzicato un pensiero. Potresti cercare lavoro come deliveroo un paio di sere la settimana, anche se dovrai lasciare tuo figlio da solo. Cosa decidi?",Cerco lavoro,40€,No,0€,,,
+Fine,Regolare,28,Sei nervosissimo. Un collega ti offre una sigaretta. Tu sei un ex fumatore e sai che è un vizio pericoloso e costoso. Accetti lo stesso perché sei davvero troppo teso o rifiuti?,Si,-2€ / settimana,No,0€,,,
+Fine,Regolare,29,Nel tuo quartiere la parrocchia è molto attiva. Sai che puoi andare a chiedere aiuto e ricevere un pacco alimentare del valore di 5 euro settimanali. Sei in difficoltà. Conosci di persona che gestisce gli aiuti e ti senti in imbarazzo. Vai a chiederlo?,Si,-5€,No,0€,,,

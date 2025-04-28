@@ -1,0 +1,16 @@
+Id,Tipo,Descrizione,Prompt,Periodicità (in giorni),Effetto,Giorno Inizio,Dipendenze,Info
+1,Random,Malattia,Sei malato :(,"1,2,3,4,5",?,1,"Se assunto vieni pagato, altrimenti no.",
+2,Regolare,Spesa,Hai fatto 'a spesa,7,?,2,Scelta della spesa fatta al giorno 2,
+3,Conseguenza,Carie dentali,"Hai le carie. La spesa per il dentista è cara, anche se non amata",-1,-250€,7,"Conseguenza se non si segue giornata di tipo preventiva.
+No a tutte e 3: 50% una conseguenza, 50% due conseguenze
+No a 2:  60% una conseguenza e 40% nessuna conseguenza
+No a 1: ????",
+4,Conseguenza,Multa RC auto,Hai preso 'na multa. Ammazza se piotti,-1,-600€,7,,
+5,Conseguenza,Mal di schiena,Hai mal di schiena alla schiena.,-1,-150€,7,,
+6,Regolare,Lavatrice,"Giorno di bucato. Aggettivo che, tra l'altro, si addice alle tue mani!!",7,-7€,6,Scelta a gettoni fatta al giorno 6,
+7,Regolare,Rata armadio,Hai pagato n'arta rata per l'anta dell'armadio,7,-20€,11,Scelta armadio fatta al giorno 11,
+8,Regolare,Lavoro scale,Hai pulite delle scale (intese come insieme di gradini),7,50€,22,Scelta lavoro aggiuntivo fatta al giorno 22,Perché così in fondo?
+9,Regolare,Lavoro fattorino,Hai consegnato del cibo. Che poi l'importante è sempre quello: Mangiare,7,40€,27,Scelta lavoro aggiuntivo fatta al giorno 27,Perché così in fondo?
+10,Regolare,Vizio del fumo,"Fumi, ma non mentre preghi. Morirai prima, ma andrai in paradiso. O forse no.",1,-2€,28,Scelta sigarette fatta al giorno 28,Perché così in fondo?
+11,Regolare,Pacco alimentare,"Hai preso un pacco, ma ti è arrivato ",7,-5€,29,Scelta pacco cibo fatta al giorno 29,"Perché così in fondo?
+Costa meno sul cibo settimanle?"
