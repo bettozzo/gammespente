@@ -38,7 +38,7 @@ const eventi = [
         "id": 4,
         "tipo": "Conseguenza",
         "descrizione": "Multa RC auto",
-        "prompt": "Hai preso 'na multa per eccesso di velocità. Ammazza se piotti.",
+        "prompt": "Hai preso 'na multa per eccesso di velocit\u00e0. Ammazza se piotti.",
         "periodo": null,
         "effetto": "-600\u20ac",
         "prossimoGiorno": 7
@@ -77,6 +77,17 @@ const eventi = [
     {
         "id": 8,
         "tipo": "Regolare",
+        "descrizione": "Cane",
+        "prompt": "Mentre imprechi questo mondo cane, ti ricordi del tuo e li compri del cibo",
+        "periodo": [
+            7
+        ],
+        "effetto": "-10\u20ac",
+        "prossimoGiorno": 14
+    },
+    {
+        "id": 9,
+        "tipo": "Regolare",
         "descrizione": "Lavoro scale",
         "prompt": "Hai pulite delle scale (intese come insieme di gradini)",
         "periodo": [
@@ -86,7 +97,7 @@ const eventi = [
         "prossimoGiorno": 22
     },
     {
-        "id": 9,
+        "id": 10,
         "tipo": "Regolare",
         "descrizione": "Lavoro fattorino",
         "prompt": "Hai consegnato del cibo. Che poi l'importante \u00e8 sempre quello: Mangiare",
@@ -97,7 +108,7 @@ const eventi = [
         "prossimoGiorno": 27
     },
     {
-        "id": 10,
+        "id": 11,
         "tipo": "Regolare",
         "descrizione": "Vizio del fumo",
         "prompt": "Fumi, ma non mentre preghi. Morirai prima, ma andrai in paradiso. O forse no.",
@@ -108,7 +119,7 @@ const eventi = [
         "prossimoGiorno": 28
     },
     {
-        "id": 11,
+        "id": 12,
         "tipo": "Regolare",
         "descrizione": "Pacco alimentare",
         "prompt": "Hai preso un pacco, ma ti \u00e8 arrivato ",

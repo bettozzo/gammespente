@@ -22,11 +22,11 @@
             </p>
         <![endif]-->
         <h1>
-            Giorno: <span id="giorno">-1</span>/<span id="totale-giorni"
-                >-1</span
-            >
+            Giorno: <span id="giorno">-1</span>
+            /
+            <span id="totale-giorni">-1</span>
         </h1>
-        <h1>Soldi: <span id="soldi">1000</span>€</h1>
+        <h1>Soldi: <span id="soldi">1200</span>€</h1>
         <p id="prompt">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
             optio delectus sapiente ipsum obcaecati fugit praesentium enim vero
@@ -47,7 +47,7 @@
                 <p id="conseguenza3">conseguenza3</p>
             </div>
         </div>
-        <div id="div-per-scelta-slider">
+        <div id="div-per-scelta-slider" style="display: none">
             <p>Spesa benzina: <span id="spesa-benzina-span">-180</span>€</p>
             <p>Spesa affitto: <span id="spesa-affitto-span">-400</span>€</p>
             <div class="slidecontainer">
@@ -64,6 +64,15 @@
             <button type="button" id="slider-conferma">
                 Seleziona un valore
             </button>
+        </div>
+
+        <div id="window-evento">
+            <div class="modal-content">
+                <span id="close-popup">&times;</span>
+                <p id="prompt-evento">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                </p>
+            </div>
         </div>
         <script src="./js/data/calendario.js"></script>
         <script src="./js/globals.js"></script>

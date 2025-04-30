@@ -6,18 +6,17 @@ const conseguenza2 = document.getElementById("conseguenza2");
 const opzione3Btn = document.getElementById("opzione3");
 const conseguenza3 = document.getElementById("conseguenza3");
 
-
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('totale-giorni').textContent = lastDay;
+    document.getElementById('totale-giorni').textContent = totalAmountOfDays;
     currentDay = 0;
     doNextDay(calendario[0]);
 });
 
 
 function doNextDay(dayInfo) {
-    giorniSpan.textContent = currentDay;
-    runDailyEvents();
+    giorniSpan.textContent = currentDay + 1;
     setupDay(dayInfo);
+    runDailyEvents();
     if (checkIfGameEnded()) {
         sessionStorage.setItem("soldiFinale", soldiSpan.textContent);
         sessionStorage.setItem("giorniFinale", currentDay);
@@ -27,7 +26,7 @@ function doNextDay(dayInfo) {
 }
 
 function checkIfGameEnded() {
-    if (currentDay == lastDay || soldiSpan.textContent < 0) {
+    if (currentDay == totalAmountOfDays || soldiSpan.textContent < 0) {
         return true;
     }
     return false;
@@ -93,37 +92,54 @@ function handleSliderInput() {
 }
 
 function runDailyEvents() {
-    const eventsToDo = eventi.filter((evento) => currentDay >= evento.prossimoGiorno)
-    for (let i = 0; i < eventsToDo.length; i++) {
-        console.log(eventsToDo[i].descrizione + "; " + eventsToDo[i].prossimoGiorno);
-    }
+    let dayToCheck = currentDay - 1;
+    const eventsToDo = eventi.filter((evento) =>
+        dayToCheck > evento.prossimoGiorno
+        && evento.tipo != "Conseguenza"
+    )
     if (eventsToDo.length == 0) {
         return;
     }
+    const dailyFlags = getAllFlagsOfDay(dayToCheck);
     for (let i = 0; i < eventsToDo.length; i++) {
         let event = eventsToDo[i];
-        switch (event.tipo) {
-            case "Random": break;
-            case "Conseguenza": break;
-            default: break;
+        let flag = dailyFlags[i];
+        if (!flag) {
+            console.log(event.descrizione)
+            continue;
         }
+        event.prossimoGiorno += shuffleArray(event.periodo)[0]
         if (event.effetto == '?') {
 
         } else {
+            showPopUp(event.prompt);
+            //todo fare effetto
             console.log("Evento: ", event.id, " ha avuto effetto: ", event.effetto)
         }
-
-    }
-    let isDayWithEvent = Math.random() < 0.5;
-    if (isDayWithEvent) {
-        let event = eventsToDo[0];
-        console.log("è capitato: " + event.id + "; " + event.prossimoGiorno);
-        event.prossimoGiorno = currentDay + shuffleArray(event.periodo)[0];
     }
     console.log("fine eventi");
 }
 
 
+function showPopUp(prompt) {
+    const windowPopup = document.getElementById("window-evento");
+    windowPopup.style.display = "block";
+    const closeButton = document.getElementById("close-popup");
+    const promptEvento = document.getElementById("prompt-evento");
+
+    promptEvento.textContent = prompt;
+
+    closeButton.onclick = function () {
+        windowPopup.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == windowPopup) {
+            windowPopup.style.display = "none";
+        }
+    }
+}
 /**
  * 
  * @param {string} amount 
@@ -134,48 +150,69 @@ function doConseguenza(amount) {
 
 opzione1Btn.addEventListener("click", (e) => {
     let dayToCheck = currentDay - 1;
-    if (giorniDaControllarePerFlags.includes(dayToCheck)) {
+    if (listaGiorniConFlag.includes(dayToCheck)) {
         switch (dayToCheck) {
-            case 0: lavoroInNero = false; break;
-            case 2: costoSpesa = -84; break;
-            case 6: userUsaLavatriceAGettoni = 0; break;
-            case 11: userPagaRataArmadio = false; break;
-            case 22: userPulisceScale = true; break;
-            case 27: userConsegnaCibo = true; break;
-            case 28: userFuma = true; break;
-            case 29: paccoCibo = true; break;
+            case 0: flags["lavoroConContratto"] = true; break;
+            case 2: flags["userHaSceltoSpesa"] = true;
+                costoSpesa = -84;
+                break;
+            case 3: flags["eseguitoPrimaPreventiva"] = true; break;
+            case 5: flags["eseguitoSecondaPreventiva"] = true; break;
+            case 6: flags["userUsaLavatriceAGettoni"] = false; break;
+            case 11: flags["userPagaRataArmadio"] = false; break;
+            case 14: flags["userHaUnCane"] = true;
+                costoSpesa += + Number(conseguenza1.textContent.replace("€", ""));
+                break;
+            case 22: flags["userPulisceScale"] = true; break;
+            case 27: flags["userConsegnaCibo"] = true; break;
+            case 28: flags["userFuma"] = true; break;
+            case 29: flags["paccoCibo"] = true; break;
             default: console.error("si dovrebbe impostare una flag in questo giorno, ma non si sa quale. Giorno: ", dayToCheck)
         }
     }
     buttonReactOnClick(conseguenza1.textContent.replace("€", ""));
 })
+
+
 opzione2Btn.addEventListener("click", (e) => {
-    if (giorniDaControllarePerFlags.includes(dayToCheck)) {
+    let dayToCheck = currentDay - 1;
+    if (listaGiorniConFlag.includes(dayToCheck)) {
         switch (dayToCheck) {
-            case 0: lavoroInNero = true; break;
-            case 2: costoSpesa = -105; break;
-            case 6: userUsaLavatriceAGettoni = 0; break;
-            case 11: userPagaRataArmadio = false; break;
-            case 22: userPulisceScale = false; break;
-            case 27: userConsegnaCibo = false; break;
-            case 28: userFuma = false; break;
-            case 29: paccoCibo = false; break;
+            case 0: flags["lavoroConContratto"] = false; break;
+            case 2: flags["userHaSceltoSpesa"] = true;
+                costoSpesa = -105;
+                break;
+            case 3: flags["eseguitoPrimaPreventiva"] = false; break;
+            case 5: flags["eseguitoSecondaPreventiva"] = false; break;
+            case 6: flags["userUsaLavatriceAGettoni"] = false; break;
+            case 11: flags["userPagaRataArmadio"] = false; break;
+            case 14: flags["userHaUnCane"] = false; break;
+            case 22: flags["userPulisceScale"] = false; break;
+            case 27: flags["userConsegnaCibo"] = false; break;
+            case 28: flags["userFuma"] = false; break;
+            case 29: flags["paccoCibo"] = false; break;
             default: console.error("si dovrebbe impostare una flag in questo giorno, ma non si sa quale. Giorno: ", dayToCheck)
         }
     }
     buttonReactOnClick(conseguenza2.textContent.replace("€", ""));
 })
+
+
 opzione3Btn.addEventListener("click", (e) => {
-    if (giorniDaControllarePerFlags.includes(dayToCheck)) {
+    let dayToCheck = currentDay - 1;
+    if (listaGiorniConFlag.includes(dayToCheck)) {
         switch (dayToCheck) {
-            case 0: lavoroInNero = undefined; break;
-            case 2: costoSpesa = -140; break;
-            case 6: userUsaLavatriceAGettoni = -7; break;
-            case 11: userPagaRataArmadio = true; break;
-            case 22: userPulisceScale = undefined; break;
-            case 27: userConsegnaCibo = undefined; break;
-            case 28: userFuma = undefined; break;
-            case 29: paccoCibo = undefined; break;
+            case 0: flags["lavoroConContratto"] = undefined; break;
+            case 2: flags["userHaSceltoSpesa"] = true;
+                costoSpesa = -140;
+                break;
+            case 6: flags["userUsaLavatriceAGettoni"] = true; break;
+            case 11: flags["userPagaRataArmadio"] = true; break;
+            case 14: flags["userHaUnCane"] = undefined; break;
+            case 22: flags["userPulisceScale"] = undefined; break;
+            case 27: flags["userConsegnaCibo"] = undefined; break;
+            case 28: flags["userFuma"] = undefined; break;
+            case 29: flags["paccoCibo"] = undefined; break;
             default: console.error("si dovrebbe impostare una flag in questo giorno, ma non si sa quale. Giorno: ", dayToCheck)
         }
     }
