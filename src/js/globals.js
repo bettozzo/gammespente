@@ -10,9 +10,13 @@ let currentDay = undefined;
 let totalAmountOfDays = calendario.length;
 let costoSpesa = undefined;
 
-const listaGiorniConFlag = [0, 2, 3, 5, 6, 11, 14, 22, 27, 28, 29].sort(function (a, b) {
+const listaGiorniConFlag = [0, 2, 3, 5, 6, 7, 11, 14, 22, 27, 28, 29].sort(function (a, b) {
     return a - b;
 });
+
+const conseguenzeDaFare = eventi.filter((evento) => evento.tipo.includes("Conseguenza"));
+const listaGiorniSostuituibili = calendario.filter((day) => day.tipo == "Sostuibile").map((day) => day.numero);
+
 let flags = {
     lavoroConContratto: undefined,
     userHaSceltoSpesa: undefined,
@@ -25,8 +29,8 @@ let flags = {
     paccoCibo: undefined,
 
     eseguitoPrimaPreventiva: undefined,
-    eseguitoSecondaPreventiva: undefined
-    //todo terza
+    eseguitoSecondaPreventiva: undefined,
+    eseguitoTerzaPreventiva: undefined,
 }
 
 function getFlagValueFromDay(day) {
@@ -35,6 +39,7 @@ function getFlagValueFromDay(day) {
         case 2: return flags["userHaSceltoSpesa"]
         case 3: return flags["eseguitoPrimaPreventiva"]
         case 5: return flags["eseguitoSecondaPreventiva"]
+        case 5: return flags["eseguitoTerzaPreventiva"]
         case 6: return flags["userUsaLavatriceAGettoni"]
         case 11: return flags["userPagaRataArmadio"]
         case 14: return flags["userHaUnCane"]

@@ -12,7 +12,7 @@ def parse_csv(file_path: str) -> list[list[str]]:
 
 def save_calendario(file: list[list[str]]):
     json_data = list()
-    headers =["fase", "tipo", "numero", "prompt", "scelta1", "conseguenza1", "scelta2", "conseguenza2", "scelta3", "conseguenza3"]
+    headers =["tipo", "numero", "prompt", "scelta1", "conseguenza1", "scelta2", "conseguenza2", "scelta3", "conseguenza3"]
     for row in file[1:]:
         data:dict[str, Any] = dict()
         for (col, field) in enumerate(row):

@@ -27,7 +27,7 @@ const eventi = [
     },
     {
         "id": 3,
-        "tipo": "Conseguenza",
+        "tipo": "Conseguenza1",
         "descrizione": "Carie dentali",
         "prompt": "Hai le carie. La spesa per il dentista \u00e8 cara, anche se non amata",
         "periodo": null,
@@ -36,7 +36,7 @@ const eventi = [
     },
     {
         "id": 4,
-        "tipo": "Conseguenza",
+        "tipo": "Conseguenza2",
         "descrizione": "Multa RC auto",
         "prompt": "Hai preso 'na multa per eccesso di velocit\u00e0. Ammazza se piotti.",
         "periodo": null,
@@ -45,7 +45,7 @@ const eventi = [
     },
     {
         "id": 5,
-        "tipo": "Conseguenza",
+        "tipo": "Conseguenza3",
         "descrizione": "Mal di schiena",
         "prompt": "Hai mal di schiena alla schiena.",
         "periodo": null,
