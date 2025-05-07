@@ -1,9 +1,9 @@
 const eventi = [
     {
-        "id": 1,
+        "id": 0,
         "tipo": "Random",
         "descrizione": "Malattia",
-        "prompt": "Sei malato :(",
+        "prompt": "Sei malato",
         "periodo": [
             1,
             2,
@@ -15,10 +15,10 @@ const eventi = [
         "prossimoGiorno": 1
     },
     {
-        "id": 2,
+        "id": 1,
         "tipo": "Regolare",
         "descrizione": "Spesa",
-        "prompt": "Hai fatto 'a spesa",
+        "prompt": "Hai fatto la spesa",
         "periodo": [
             7
         ],
@@ -26,7 +26,7 @@ const eventi = [
         "prossimoGiorno": 2
     },
     {
-        "id": 3,
+        "id": 2,
         "tipo": "Conseguenza1",
         "descrizione": "Carie dentali",
         "prompt": "Hai le carie. La spesa per il dentista \u00e8 cara, anche se non amata",
@@ -35,16 +35,16 @@ const eventi = [
         "prossimoGiorno": 7
     },
     {
-        "id": 4,
+        "id": 3,
         "tipo": "Conseguenza2",
         "descrizione": "Multa RC auto",
-        "prompt": "Hai preso 'na multa per eccesso di velocit\u00e0. Ammazza se piotti.",
+        "prompt": "Hai preso una multa poich\u00e9 non avevi la polizza RC sull'auto ",
         "periodo": null,
         "effetto": "-600\u20ac",
         "prossimoGiorno": 7
     },
     {
-        "id": 5,
+        "id": 4,
         "tipo": "Conseguenza3",
         "descrizione": "Mal di schiena",
         "prompt": "Hai mal di schiena alla schiena.",
@@ -53,7 +53,7 @@ const eventi = [
         "prossimoGiorno": 7
     },
     {
-        "id": 6,
+        "id": 5,
         "tipo": "Regolare",
         "descrizione": "Lavatrice",
         "prompt": "Giorno di bucato. Aggettivo che, tra l'altro, si addice alle tue mani!!",
@@ -64,7 +64,7 @@ const eventi = [
         "prossimoGiorno": 6
     },
     {
-        "id": 7,
+        "id": 6,
         "tipo": "Regolare",
         "descrizione": "Rata armadio",
         "prompt": "Hai pagato n'arta rata per l'anta dell'armadio",
@@ -75,7 +75,7 @@ const eventi = [
         "prossimoGiorno": 11
     },
     {
-        "id": 8,
+        "id": 7,
         "tipo": "Regolare",
         "descrizione": "Cane",
         "prompt": "Mentre imprechi questo mondo cane, ti ricordi del tuo e li compri del cibo",
@@ -86,7 +86,7 @@ const eventi = [
         "prossimoGiorno": 14
     },
     {
-        "id": 9,
+        "id": 8,
         "tipo": "Regolare",
         "descrizione": "Lavoro scale",
         "prompt": "Hai pulite delle scale (intese come insieme di gradini)",
@@ -97,7 +97,7 @@ const eventi = [
         "prossimoGiorno": 22
     },
     {
-        "id": 10,
+        "id": 9,
         "tipo": "Regolare",
         "descrizione": "Lavoro fattorino",
         "prompt": "Hai consegnato del cibo. Che poi l'importante \u00e8 sempre quello: Mangiare",
@@ -108,18 +108,18 @@ const eventi = [
         "prossimoGiorno": 27
     },
     {
-        "id": 11,
+        "id": 10,
         "tipo": "Regolare",
         "descrizione": "Vizio del fumo",
         "prompt": "Fumi, ma non mentre preghi. Morirai prima, ma andrai in paradiso. O forse no.",
         "periodo": [
             1
         ],
-        "effetto": "-2\u20ac",
+        "effetto": "-5\u20ac",
         "prossimoGiorno": 28
     },
     {
-        "id": 12,
+        "id": 11,
         "tipo": "Regolare",
         "descrizione": "Pacco alimentare",
         "prompt": "Hai preso un pacco, ma ti \u00e8 arrivato ",

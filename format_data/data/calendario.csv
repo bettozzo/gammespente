@@ -1,20 +1,20 @@
 Tipo,#,Prompt,Scelta #1,Conseguenza #1,Scelta #2,Conseguenza #2,Scelta #3,Conseguenza #3,Info
-Regolare,0,"Inizi a lavorare. Il tuo datore di lavoro ti propone una scelta. Puoi lavorare in regola con uno stipendio fisso di 900€ oppure in nero, senza contratto, per 1200€",In regola,1000€,Nero,1300€,,,
+Regolare,0,"Inizi a lavorare. Il tuo datore di lavoro ti propone una scelta. Puoi lavorare in regola con uno stipendio fisso di 1000€ oppure in nero, senza contratto, per 1300€",In regola,1000€,Nero,1300€,,,
 Regolare,1,"Devi scegliere la tua casa. Se è vicino alla città dove lavori paghi di più, ma spendi meno in benzina per andare al lavoro.",30km,"Affitto: -400€
 Benzina: -180€",0km,"Affitto: -700€
 Benzina: 0€",,,
 Regolare,2,"Ogni sabato vai a fare la spesa settimanale. Scegli un discount, un supermercato vicino a casa o una catena con prodotti bio",Discount,-84€,Supermercato,-105€,Biologico,-140€,
 Preventiva1,3,Ti chiama il tuo dentista per ricordarti l'appuntamento annuale per il controllo e l'ablazione del tartaro. Confermi l'appuntamento o lo cancelli?,Confermo,-100€,Lo cancello,0€,,,
-Regolare,4,"La scuola di tuo figlio organizza una uscita a teatro per tutti i bambini.
+Regolare,4,"La scuola di tuo figlio organizza un'uscita a teatro per tutti i bambini.
 Il biglietto costa 8 euro. Lo mandi o lo tieni a casa?",Lo mando,-8€,Non lo mando,0€,,,
 Preventiva2,5,Trovi nella posta una lettera del tuo assicuratore: è scaduta la polizza RC auto. Ti propone di pagarla in una due rate semestrali. Paghi o ignori la lettera?,Pago,-300€,Non pago,0€,,,
-Regolare,6,"Torni a casa dal lavoro e ti accorgi di un guasto alla tua vecchia lavatrice: non si accende più la ripari anche se è vecchia, ne compri una nuova o decidi di appoggiarti alla lavatrice a gettone?",Compro una nuova,-250€,Ripararo,-150€,Uso una a gettoni,-7€,
+Regolare,6,"Torni a casa dal lavoro e ti accorgi di un guasto alla tua vecchia lavatrice: non si accende più. La ripari anche se è vecchia, ne compri una nuova o decidi di appoggiarti alla lavatrice a gettone?",Compro una nuova,-250€,La riparo,-150€,Uso una a gettoni,-7€,
 Preventiva3,7,Vicino a casa tua ha aperto una nuova palestra e offre una ottima promozione per i primi iscritti. Ti iscrivi o per ora rinvii?,Mi iscrivo,-60€,Non mi iscrivo,0€,,,
 Regolare,8,Arrivano le bollette delle utenze. Se non le paghi ti verranno tolti luce e gas,Pago,-150€,Non pago,0€,,,
 Regolare,9,"Un compagno di scuola di tuo figlio organizza una piccola festa per il suo compleanno. I compagni fanno un regalo collettivo: partecipi, fai un regalo per conto tuo o lo mandi senza?",Da solo,-8€,Con la classe,-5€,Senza,0€,
 Regolare,10,Sta arrivando il weekend e si prevede un sole magnifico. Avresti proprio voglia di passare un week-end al mare con tuo figlio e alcuni amici. Ti organizzi per la gita o lasci perdere?,Ci vado,-300€,Non ci vado,0€,,,
-Regolare,11,"Che guaio! Mentre aprivi l'armadio per vestitrti questa mattina ti è rimasta un'anta dell'armadio in mano. La togli e ne fai a meno, compri un armadio al negozio dell'usato o ne acquisti uno nuovo a rate?",La tolgo,0€,La compro usata,-70€,Ne compro una nuova a rate settimanali,-20€,
-Regolare,12,Un tuo collega offre da bere a tutti. Ha vinto 1000 euro al gratta e vinci. Certo che una vincita risolverebbe molti problemi. Compri un gratta e vinci o lasci perdere?,Non lo compro,0€,"Ne compro uno, ma non voglio rischiare troppo",-5€,Ne compro uno e ho grandi speranze,-20€,1/7 vince doppio giocata
+Regolare,11,"Che guaio! Mentre aprivi l'armadio per vestirti questa mattina ti è rimasta un'anta dell'armadio in mano. La togli e ne fai a meno, compri un armadio al negozio dell'usato o ne acquisti uno nuovo a rate settimanali?",La tolgo,0€,La compro usata,-70€,La compro nuova a rate,-20€,
+Regolare,12,Un tuo collega offre da bere a tutti. Ha vinto 1000 euro al gratta e vinci. Certo che una vincita risolverebbe molti problemi. Compri un gratta e vinci o lasci perdere?,Non lo compro,0€,Ne compro uno da 5€,-5€,Ne compro uno da 20€,-20€,1/7 vince doppio giocata
 Sostuibile,13,Il tuo datore di lavoro ha una commessa di lavoro extra. Ti propone di fare qualche ora in più  sabato pomeriggio. Accetti?,Si,30€,No,0€,,,
 Regolare,14,"Tuo figlio torna a casa da scuola raggiante: la  cagnolina di un compagno di classe ha avuto 4 cuccioli e vuole regalargliene uno. Sei un po' dubbioso: un cane richiede tempo, cure… e spese. Tra veterinario e cibo almeno 10 euro a settimana. Cosa decidi di fare?",Lo adotto,-10€,Non lo adotto,0€,,,
 Regolare,15,"Ti chiamano gli insegnanti di tuo figlio. Va molto bene in lettere, ma male in matematica. Avrebbe bisogno di un aiuto, decidi di aiutarlo tu, lo mandi a ripetizione o chiedi aiuto a un amico?",Aiuto io,0€,Ripetizioni,-50€,Chiedo ad un amico,-25€,"per chi decide di aiutarlo: Risolvi questo problema: x+9= 18+(-2x). Proporre 4 soluzioni x= 2, 3, 5 e 7. 
@@ -24,12 +24,12 @@ Regolare,17,Finalmente è il giorno del tuo compleanno e decidi di organizzare u
 Sostuibile,18,Sei al lavoro. Tuo figlio ha invitato a casa un amico e all'ora di merenda ti telefonano per chiedere se possono uscire a mangiare un gelato. Dai il tuo permesso (e i soldi per comprarlo) o gli dici di prepararsi una merenda in casa?,Glielo concedo,-5€,Glielo nego,0€,,,
 Regolare,19,"Navigando online trovi un'offerta benessere davvero vantaggiosa, un supersconto su: terme, massaggio per un pomeriggio relax. L'offerta vale solo per i primi 10 che rispondono. Acquisti subito l'offerta o rinunci?",Acquisto subito,-50€,Rinuncio,0€,,,
 Regolare,20,"Vicino a casa ha aperto un compro-oro: uno di quei negozi dove puoi vendere gioielli e ricevere denaro contante. Sai che in genere non pagano molto, ma hai alcune collanine e braccialetti che ti avevano regalato da piccolo e che non usi più. Li porti?",Si,100€,No,0€,,,
-Regolare,21,Tuo figlio si è ammalato e siccome ha 8 anni puoi stare a casa ad assisterlo ma non sarai pagato. Si prevedono 3 giorni di malattia.,Resto a casa,-(stipendio/10),Vado a lavoro,0€,,,
+Regolare,21,Tuo figlio si è ammalato e siccome ha 8 anni puoi stare a casa ad assisterlo. Si prevedono 3 giorni di malattia.,Resto a casa,-(stipendio/10),Vado a lavoro,0€,,,
 Regolare,22,Il condominio di un tuo amico cerca qualcuno che pulisca le scale la mattina presto due volte alla settimana. Accetti questo nuovo lavoro?,Si,50€,No,0€,,,
 Regolare,23,"Tuo figlio vuole giocare a calcetto. Far parte della squadra è gratis, ma devi pagare divisa e assicurazione. Lo mandi o rinunci?",Lo mando,-50€,Non lo mando,0€,,,
 Sostuibile,24,Passeggiando in centro vedi una superofferta nel tuo negozio di abbigliamento preferito: saldi al 70%. Irresistibile! Entri o rinunci?,Entro,-100€,Ignoro,0€,,,
 Regolare,25,Esci di corsa per andare in ufficio. Arrivi al parcheggio e l'auto fa un rumore strano e si accende una spia. La ripari o rinvii?,La riparo,-300€,Ignoro la spia,0€,,,
 Regolare,26,Tuo figlio ha preso un bel voto a scuola. Siete contenti e volete festeggiare. Ordini una pizza a domicilio o prepari qualcosa tu?,Ordino da fuori,-15€,Cucino io,0€,,,
 Regolare,27,"L'idea della pizza di ieri ti ha stuzzicato un pensiero. Potresti diventare un rider per Deliveroo per un paio di sere la settimana, anche se dovrai lasciare tuo figlio da solo. Cosa decidi?",Divento un rider,20€,Resto con mio figlio,0€,,,
-Regolare,28,Sei nervosissimo. Un collega ti offre una sigaretta. Tu sei un ex fumatore e sai che è un vizio pericoloso e costoso. Accetti lo stesso perché sei davvero troppo teso o rifiuti?,Accetto,-5€ / settimana,Rifiuto,0€,,,
+Regolare,28,Sei nervosissimo. Un collega ti offre una sigaretta. Tu sei un ex fumatore e sai che è un vizio pericoloso e costoso. Accetti lo stesso perché sei davvero troppo teso o rifiuti?,Accetto,-5€ ,Rifiuto,0€,,,
 Regolare,29,Nel tuo quartiere la parrocchia è molto attiva. Sai che puoi andare a chiedere aiuto e ricevere un pacco alimentare del valore di 5 euro settimanali. Sei in difficoltà. Conosci di persona che gestisce gli aiuti e ti senti in imbarazzo. Vai a chiederlo?,Si,-10€,No,0€,,,

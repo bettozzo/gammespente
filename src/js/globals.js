@@ -9,6 +9,7 @@ const giorniSpan = document.getElementById("giorno");
 let currentDay = undefined;
 let totalAmountOfDays = calendario.length;
 let costoSpesa = undefined;
+let stipendio = undefined;
 
 const listaGiorniConFlag = [0, 2, 3, 5, 6, 7, 11, 14, 22, 27, 28, 29].sort(function (a, b) {
     return a - b;
@@ -62,6 +63,24 @@ function getAllFlagsOfDay(dayToCheck) {
 
     let sliced = Object.fromEntries(Object.entries(flags).slice(0, flagsBeforeThisDay));
     return Object.values(sliced)
+}
+
+function getFlagFromEventoId(id){
+    switch (id){
+        case 0: return flags["lavoroConContratto"] != undefined
+        case 1: return flags["userHaSceltoSpesa"]
+        case 2: return flags["eseguitoPrimaPreventiva"]
+        case 3: return flags["eseguitoSecondaPreventiva"]
+        case 4: return flags["eseguitoTerzaPreventiva"]
+        case 5: return flags["userUsaLavatriceAGettoni"]
+        case 6: return flags["userPagaRataArmadio"]
+        case 7: return flags["userHaUnCane"]
+        case 8: return flags["userPulisceScale"]
+        case 9: return flags["userConsegnaCibo"]
+        case 10: return flags["userFuma"]
+        case 11: return flags["paccoCibo"]
+        default: return undefined
+    }
 }
 
 //********************

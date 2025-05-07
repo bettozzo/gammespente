@@ -27,7 +27,6 @@ function doNextDay(dayInfo) {
         window.location.href = "./endscreen.html";
         return;
     }
-    console.log(soldiSpan)
     giorniSpan.textContent = currentDay + 1;
     setupDay(dayInfo);
     runDailyEvents();
@@ -43,7 +42,7 @@ function checkIfGameEnded() {
 function setupDay(dayInfo) {
     prompt.textContent = dayInfo.prompt;
 
-    if (currentDay == 1) {
+    if (dayInfo.numero == 1) {
         document.getElementById("div-per-scelta-bottoni").style.display = "none";
         document.getElementById("div-per-conseguenza-giornata").style.display = "none";
         document.getElementById("div-per-scelta-slider").style.display = "inline-block";
@@ -61,6 +60,14 @@ function handleNormalInputs(dayInfo) {
     conseguenza1.textContent = dayInfo.conseguenza1;
     opzione2Btn.textContent = dayInfo.scelta2;
     conseguenza2.textContent = dayInfo.conseguenza2;
+    if (currentDay == 21) {
+        if (flags["lavoroConContratto"]) {
+            conseguenza1.textContent = 0 + "€";
+        } else {
+            let stipendioTrattenuto = -Math.round((stipendio / totalAmountOfDays) * 3);
+            conseguenza1.textContent = stipendioTrattenuto + "€";
+        }
+    }
     if (dayInfo.scelta3 != "") {
         document.getElementById("terza-div").style.display = 'block';
         opzione3Btn.textContent = dayInfo.scelta3;
@@ -102,7 +109,12 @@ function handleSliderInput() {
 }
 
 function runDailyEvents() {
-    const eventsToDo = eventi.filter((evento) => currentDay > evento.prossimoGiorno && !evento.tipo.includes("Conseguenza"))
+    const eventsToDo = eventi.filter((evento) =>
+        currentDay > evento.prossimoGiorno
+        && !evento.tipo.includes("Conseguenza")
+        && getFlagFromEventoId(evento.id));
+
+    // debugger;
     if (eventsToDo.length != 0) {
         runNormalEvents(eventsToDo)
     }
@@ -112,13 +124,8 @@ function runDailyEvents() {
 }
 
 function runNormalEvents(eventsToDo) {
-    const dailyFlags = getAllFlagsOfDay(currentDay);
     for (let i = 0; i < eventsToDo.length; i++) {
         let evento = eventsToDo[i];
-        let flag = dailyFlags[i];
-        if (!flag) {
-            continue;
-        }
         evento.prossimoGiorno += shuffleArray(evento.periodo)[0]
         if (evento.effetto != '?') {
             showPopUp(evento.prompt, evento.effetto);
@@ -126,16 +133,18 @@ function runNormalEvents(eventsToDo) {
                 Number(soldiSpan.textContent) + Number(evento.effetto.replace("€", ""))
             )
         } else {
-            if (evento.id == 1) { //malattia
-                let vienePagato = flags["lavoroConContratto"]
-                //todo domanda
-                showPopUp(evento.prompt, "Ma non so quanto darti");
-                // soldiSpan.textContent = Math.round(
-                //     Number(soldiSpan.textContent) + Number(evento.effetto.replace("€", ""))
-                // )
-            } else if (evento.id == 2) {
-                if (flag["userHaSceltoSpesa"]) {
-                    showPopUp(evento.prompt, costoSpesa);
+            if (evento.id == 0) { //malattia
+                let vienePagato = flags["lavoroConContratto"];
+                if (vienePagato) {
+                    showPopUp(evento.prompt + "<br>Ma siccome sei con contratto, continui a ricevere lo stipendio");
+                } else {
+                    let stipendioTrattenuto = -Math.round(stipendio / totalAmountOfDays);
+                    showPopUp(evento.prompt + "<br>Ma sei senza contratto, quindi non verrai pagato.", stipendioTrattenuto + "€");
+                    soldiSpan.textContent = Math.round(Number(soldiSpan.textContent) + stipendioTrattenuto);
+                }
+            } else if (evento.id == 1) {
+                if (flags["userHaSceltoSpesa"]) {
+                    showPopUp(evento.prompt, costoSpesa + "€");
                     soldiSpan.textContent = Math.round(Number(soldiSpan.textContent) + costoSpesa)
                 }
             }
@@ -216,13 +225,13 @@ function runConseguenzaGiornata() {
 }
 
 
-function showPopUp(prompt, effetto) {
+function showPopUp(prompt, effetto = "") {
     const windowPopup = document.getElementById("window-evento");
     windowPopup.style.display = "block";
     const closeButton = document.getElementById("close-popup");
     const promptEvento = document.getElementById("prompt-evento");
 
-    promptEvento.textContent = prompt + "\n" + effetto;
+    promptEvento.innerHTML = prompt + "<br>" + effetto;
 
     closeButton.onclick = function () {
         windowPopup.style.display = "none";
@@ -244,9 +253,12 @@ function doConseguenzaAzione(amount) {
 }
 
 opzione1Btn.addEventListener("click", (e) => {
+    let conseguenzaEuro = conseguenza1.textContent.replace("€", "");
     if (listaGiorniConFlag.includes(currentDay)) {
         switch (currentDay) {
-            case 0: flags["lavoroConContratto"] = true; break;
+            case 0: flags["lavoroConContratto"] = true;
+                stipendio = conseguenzaEuro;
+                break;
             case 2: flags["userHaSceltoSpesa"] = true;
                 costoSpesa = -84;
                 break;
@@ -265,14 +277,35 @@ opzione1Btn.addEventListener("click", (e) => {
             default: console.error("si dovrebbe impostare una flag in questo giorno, ma non si sa quale. Giorno: ", currentDay)
         }
     }
-    buttonReactOnClick(conseguenza1.textContent.replace("€", ""));
+    if (currentDay == 15) {
+        'use strict';
+        const correctFunction = function () {
+            showPopUp("Risposta corretta!");
+            document.getElementById("bottoni-multiscelta-popup").style.display = "none";
+        };
+        const wrongChoiceFunction = function () {
+            showPopUp("Risposta sbagliata. 😢");
+            document.getElementById("bottoni-multiscelta-popup").style.display = "none";
+        };
+
+        showPopUp("Risolvi l'equazione<br>x+9=18+(-2x)");
+        document.getElementById("bottoni-multiscelta-popup").style.display = "block";
+        document.getElementById("scelta1").addEventListener("click", wrongChoiceFunction);
+        document.getElementById("scelta2").addEventListener("click", correctFunction);
+        document.getElementById("scelta3").addEventListener("click", wrongChoiceFunction);
+        document.getElementById("scelta4").addEventListener("click", wrongChoiceFunction);
+    }
+    buttonReactOnClick(conseguenzaEuro);
 })
 
 
 opzione2Btn.addEventListener("click", (e) => {
+    let conseguenzaEuro = conseguenza2.textContent.replace("€", "");
     if (listaGiorniConFlag.includes(currentDay)) {
         switch (currentDay) {
-            case 0: flags["lavoroConContratto"] = false; break;
+            case 0: flags["lavoroConContratto"] = false;
+                stipendio = conseguenzaEuro;
+                break;
             case 2: flags["userHaSceltoSpesa"] = true;
                 costoSpesa = -105;
                 break;
@@ -289,7 +322,16 @@ opzione2Btn.addEventListener("click", (e) => {
             default: console.error("si dovrebbe impostare una flag in questo giorno, ma non si sa quale. Giorno: ", currentDay)
         }
     }
-    buttonReactOnClick(conseguenza2.textContent.replace("€", ""));
+    switch (currentDay) {
+        case 12://Giornata con gratta e vinci
+            if (Math.random() <= 1 / 7) {
+                showPopUp("Hai vinto il doppio della giocata al gratta e vinci!")
+                conseguenzaEuro = Math.abs(conseguenzaEuro);//Vincita: 2*costo-costo = costo
+            }
+            break;
+        default: break;
+    }
+    buttonReactOnClick(conseguenzaEuro);
 })
 
 
@@ -313,7 +355,17 @@ opzione3Btn.addEventListener("click", (e) => {
             default: console.error("si dovrebbe impostare una flag in questo giorno, ma non si sa quale. Giorno: ", currentDay)
         }
     }
-    buttonReactOnClick(conseguenza3.textContent.replace("€", ""));
+    let conseguenzaEuro = conseguenza3.textContent.replace("€", "");
+    switch (currentDay) {
+        case 12://Giornata con gratta e vinci
+            if (Math.random() <= 1 / 7) {
+                showPopUp("Hai vinto il doppio della giocata al gratta e vinci!")
+                conseguenzaEuro = Math.abs(conseguenzaEuro);//Vincita: 2*costo-costo = costo
+            }
+            break;
+        default: break;
+    }
+    buttonReactOnClick(conseguenzaEuro);
 })
 
 

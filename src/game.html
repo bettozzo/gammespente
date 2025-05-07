@@ -13,14 +13,10 @@
         <link rel="stylesheet" href="./tutto.css" />
     </head>
     <body>
-        <button onclick="location.href = './index.html'">Homepage</button>
-        <button onclick="location.href = './game.html'">Reset</button>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">
-                You are using an <strong>outdated</strong> browser. Please
-                <a href="#">upgrade your browser</a> to improve your experience.
-            </p>
-        <![endif]-->
+        <div id="menu">
+            <button onclick="location.href = './index.html'">Homepage</button>
+            <button onclick="location.href = './game.html'">Reset</button>
+        </div>
         <h1>
             Giorno: <span id="giorno">-1</span>
             /
@@ -36,22 +32,22 @@
         <div id="div-per-scelta-bottoni">
             <div>
                 <button type="button" id="opzione1">opzione 1</button>
-                <p id="conseguenza1">conseguenza1</p>
+                <p class="conseguenza" id="conseguenza1">conseguenza1</p>
             </div>
             <div>
                 <button type="button" id="opzione2">opzione 2</button>
-                <p id="conseguenza2">conseguenza2</p>
+                <p class="conseguenza" id="conseguenza2">conseguenza2</p>
             </div>
             <div id="terza-div">
                 <button type="button" id="opzione3">opzione 3</button>
-                <p id="conseguenza3">conseguenza3</p>
+                <p class="conseguenza" id="conseguenza3">conseguenza3</p>
             </div>
         </div>
 
         <div id="div-per-conseguenza-giornata" style="display: none">
             <div>
                 <button type="button" id="ok-conseguenza">Ok</button>
-                <p id="conseguenzaGiornata">conseguenzaGiorrnata</p>
+                <p class="conseguenza" id="conseguenzaGiornata">conseguenzaGiorrnata</p>
             </div>
         </div>
         <div id="div-per-scelta-slider" style="display: none">
@@ -79,6 +75,12 @@
                 <p id="prompt-evento">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 </p>
+                <div style="display: none;" id="bottoni-multiscelta-popup">
+                    <button type="button" id="scelta1">2</button>
+                    <button type="button" id="scelta2">3</button>
+                    <button type="button" id="scelta3">5</button>
+                    <button type="button" id="scelta4">7</button>
+                </div>
             </div>
         </div>
         <script src="./js/data/calendario.js"></script>

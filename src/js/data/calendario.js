@@ -2,7 +2,7 @@ const calendario = [
     {
         "tipo": "Regolare",
         "numero": 0,
-        "prompt": "Inizi a lavorare. Il tuo datore di lavoro ti propone una scelta. Puoi lavorare in regola con uno stipendio fisso di 900\u20ac oppure in nero, senza contratto, per 1200\u20ac",
+        "prompt": "Inizi a lavorare. Il tuo datore di lavoro ti propone una scelta. Puoi lavorare in regola con uno stipendio fisso di 1000\u20ac oppure in nero, senza contratto, per 1300\u20ac",
         "scelta1": "In regola",
         "conseguenza1": "1000\u20ac",
         "scelta2": "Nero",
@@ -46,7 +46,7 @@ const calendario = [
     {
         "tipo": "Regolare",
         "numero": 4,
-        "prompt": "La scuola di tuo figlio organizza una uscita a teatro per tutti i bambini.\nIl biglietto costa 8 euro. Lo mandi o lo tieni a casa?",
+        "prompt": "La scuola di tuo figlio organizza un'uscita a teatro per tutti i bambini.\nIl biglietto costa 8 euro. Lo mandi o lo tieni a casa?",
         "scelta1": "Lo mando",
         "conseguenza1": "-8\u20ac",
         "scelta2": "Non lo mando",
@@ -68,10 +68,10 @@ const calendario = [
     {
         "tipo": "Regolare",
         "numero": 6,
-        "prompt": "Torni a casa dal lavoro e ti accorgi di un guasto alla tua vecchia lavatrice: non si accende pi\u00f9 la ripari anche se \u00e8 vecchia, ne compri una nuova o decidi di appoggiarti alla lavatrice a gettone?",
+        "prompt": "Torni a casa dal lavoro e ti accorgi di un guasto alla tua vecchia lavatrice: non si accende pi\u00f9. La ripari anche se \u00e8 vecchia, ne compri una nuova o decidi di appoggiarti alla lavatrice a gettone?",
         "scelta1": "Compro una nuova",
         "conseguenza1": "-250\u20ac",
-        "scelta2": "Ripararo",
+        "scelta2": "La riparo",
         "conseguenza2": "-150\u20ac",
         "scelta3": "Uso una a gettoni",
         "conseguenza3": "-7\u20ac"
@@ -123,12 +123,12 @@ const calendario = [
     {
         "tipo": "Regolare",
         "numero": 11,
-        "prompt": "Che guaio! Mentre aprivi l'armadio per vestitrti questa mattina ti \u00e8 rimasta un'anta dell'armadio in mano. La togli e ne fai a meno, compri un armadio al negozio dell'usato o ne acquisti uno nuovo a rate?",
+        "prompt": "Che guaio! Mentre aprivi l'armadio per vestirti questa mattina ti \u00e8 rimasta un'anta dell'armadio in mano. La togli e ne fai a meno, compri un armadio al negozio dell'usato o ne acquisti uno nuovo a rate settimanali?",
         "scelta1": "La tolgo",
         "conseguenza1": "0\u20ac",
         "scelta2": "La compro usata",
         "conseguenza2": "-70\u20ac",
-        "scelta3": "Ne compro una nuova a rate settimanali",
+        "scelta3": "La compro nuova a rate",
         "conseguenza3": "-20\u20ac"
     },
     {
@@ -137,9 +137,9 @@ const calendario = [
         "prompt": "Un tuo collega offre da bere a tutti. Ha vinto 1000 euro al gratta e vinci. Certo che una vincita risolverebbe molti problemi. Compri un gratta e vinci o lasci perdere?",
         "scelta1": "Non lo compro",
         "conseguenza1": "0\u20ac",
-        "scelta2": "Ne compro uno, ma non voglio rischiare troppo",
+        "scelta2": "Ne compro uno da 5\u20ac",
         "conseguenza2": "-5\u20ac",
-        "scelta3": "Ne compro uno e ho grandi speranze",
+        "scelta3": "Ne compro uno da 20\u20ac",
         "conseguenza3": "-20\u20ac"
     },
     {
@@ -233,7 +233,7 @@ const calendario = [
     {
         "tipo": "Regolare",
         "numero": 21,
-        "prompt": "Tuo figlio si \u00e8 ammalato e siccome ha 8 anni puoi stare a casa ad assisterlo ma non sarai pagato. Si prevedono 3 giorni di malattia.",
+        "prompt": "Tuo figlio si \u00e8 ammalato e siccome ha 8 anni puoi stare a casa ad assisterlo. Si prevedono 3 giorni di malattia.",
         "scelta1": "Resto a casa",
         "conseguenza1": "-(stipendio/10)",
         "scelta2": "Vado a lavoro",
@@ -312,7 +312,7 @@ const calendario = [
         "numero": 28,
         "prompt": "Sei nervosissimo. Un collega ti offre una sigaretta. Tu sei un ex fumatore e sai che \u00e8 un vizio pericoloso e costoso. Accetti lo stesso perch\u00e9 sei davvero troppo teso o rifiuti?",
         "scelta1": "Accetto",
-        "conseguenza1": "-5\u20ac / settimana",
+        "conseguenza1": "-5\u20ac ",
         "scelta2": "Rifiuto",
         "conseguenza2": "0\u20ac",
         "scelta3": "",
