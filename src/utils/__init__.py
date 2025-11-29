@@ -1,9 +1,9 @@
 from .scelta import Scelta
-from .calendario import Calendario
+from .giornata import Giornata
 from .eventi import Eventi
 
 __all__ = [
-            'Calendario',
+            'Giornata',
             'Eventi',
             'Scelta',
         ]
